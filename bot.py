@@ -39,7 +39,7 @@ from telegram.ext import (
 # ==================== تنظیمات ====================
 
 # توکن را از متغیر محیطی بخوان، یا اینجا مستقیم قرار بده (فقط برای تست محلی).
-TOKEN = os.getenv("BOT_TOKEN", "TOKEN = os.getenv("BOT_TOKEN")")
+TOKEN = os.getenv("BOT_TOKEN", "PUT_YOUR_TOKEN_HERE")
 
 DB_PATH = "watchlist.db"
 TSETMC_BASE_URL = "http://cdn.tsetmc.com"
