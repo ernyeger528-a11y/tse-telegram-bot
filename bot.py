@@ -44,7 +44,7 @@ TOKEN = os.getenv("BOT_TOKEN", "PUT_YOUR_TOKEN_HERE")
 # کلید رایگان BrsApi را از این صفحه بگیرید:
 # https://brsapi.ir/tsetmc-exchange-free-bourse-api-key-request/
 BRSAPI_KEY = os.getenv("BRSAPI_KEY", "")
-BRSAPI_URL = "BRSAPI_URL = "https://Api.BrsApi.ir/Tsetmc/AllSymbols.php"
+BRSAPI_URL = "https://Api.BrsApi.ir/Tsetmc/AllSymbols.php"
 
 DB_PATH = "watchlist.db"
 
