@@ -44,7 +44,7 @@ TOKEN = os.getenv("BOT_TOKEN", "PUT_YOUR_TOKEN_HERE")
 # کلید رایگان BrsApi را از این صفحه بگیرید:
 # https://brsapi.ir/tsetmc-exchange-free-bourse-api-key-request/
 BRSAPI_KEY = os.getenv("BRSAPI_KEY", "")
-BRSAPI_URL = "https://Api.BrsApi.ir/Tsetmc/AllSymbols.php"
+BRSAPI_URL = "https://BrsApi.ir/FreeTsetmcBourseApi/TsetmcApi.php"
 
 DB_PATH = "watchlist.db"
 
@@ -173,9 +173,15 @@ async def fetch_all_symbols() -> list[dict]:
         return _cache["data"]
 
     url = f"{BRSAPI_URL}?key={BRSAPI_KEY}"
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+        )
+    }
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.get(url, timeout=TIMEOUT) as resp:
+            async with session.get(url, headers=headers, timeout=TIMEOUT) as resp:
                 resp.raise_for_status()
                 data = await resp.json(content_type=None)
     except Exception as exc:  # noqa: BLE001
